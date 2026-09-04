@@ -55,21 +55,24 @@ public class ReporteService {
      */
     public Set<Libro> librosNuncaPrestados() throws SQLException {
         Set<Libro> resultado = new HashSet<>();
-        // TODO: usar libroDAO y prestamoDAO para llenar "resultado" segun las pistas de arriba.
+        
+        
         List<Libro> libros = libroDAO.listarTodos();
-        List<PrestamoDetalle> prestamosActivos =
-                prestamoDAO.listarPrestamosActivosConLibro();
+        List<PrestamoDetalle> prestamosActivos = prestamoDAO.listarPrestamosActivosConLibro();
+        
         Set<String> titulosPrestados = new HashSet<>();
-        for (PrestamoDetalle prestamo : prestamosActivos) {
-            titulosPrestados.add(prestamo.getTituloLibro());
+        
+        for(PrestamoDetalle prestamo : prestamosActivos ) {
+        	titulosPrestados.add(prestamo.getTituloLibro());
         }
-        for(Libro libro: libros) {
+        
+        
+        for(Libro libro : libros ) {
         	if(!titulosPrestados.contains(libro.getTitulo())) {
-        		 resultado.add(libro);
-        		
+        		resultado.add(libro);
         	}
-        }  
-
+        }
+        
         return resultado;
     }
 
@@ -96,7 +99,6 @@ public class ReporteService {
                 conteo.put(titulo, 1);
             }
         }
-
         return conteo;
     }
 }

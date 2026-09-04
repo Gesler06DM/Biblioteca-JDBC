@@ -22,7 +22,7 @@ public class LibroDAO {
 
     private static final String URL = "jdbc:mariadb://localhost:3306/prog2_db";
     private static final String USUARIO = "root";
-    private static final String PASSWORD = "J4viermadrid";
+    private static final String PASSWORD = "password";
 
     public int crear(Libro libro) throws SQLException {
         String sql = "INSERT INTO libros (titulo, autor, isbn) VALUES (?, ?, ?)";
