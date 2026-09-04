@@ -1,3 +1,7 @@
+Integrantes del Grupo: 
+Javier Alexander Samayoa Monrroy:0905-25-24070
+Leanny Yaile Albeño Gomez 0905-25-3132
+Geesler Magdiel Duque Martinez 0905-25-6159
 # Clase 7 - Biblioteca (JDBC con relacion 1:N) — Actividad de clase
 
 Repaso directo de la Clase 5 (`clase05-jdbc-con-maven`): mismo patron de DAO,
