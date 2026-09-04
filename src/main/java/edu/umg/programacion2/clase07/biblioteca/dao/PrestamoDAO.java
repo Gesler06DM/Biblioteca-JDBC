@@ -24,6 +24,7 @@ import java.util.List;
  */
 public class PrestamoDAO {
 
+
     private static final String URL = "jdbc:mariadb://localhost:3306/prog2_db";
     private static final String USUARIO = "root";
     private static final String PASSWORD = "Pasword";
@@ -98,6 +99,7 @@ public class PrestamoDAO {
     
     public List<PrestamoDetalle> listarPrestamosActivosConLibro() throws SQLException {
         List<PrestamoDetalle> resultado = new ArrayList<>();
+
         
         String sql= "SELECT p.nombre_estudiante, p.fecha_prestamo, l.titulo "
         		+ "FROM prestamos p "

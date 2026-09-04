@@ -173,7 +173,10 @@ public class Main {
 		}
 	}
 
+
 	private static void reporteLibrosNuncaPrestados() {
+
+
 
 		try {
 
@@ -184,7 +187,6 @@ public class Main {
 			for (Libro libro : libros) {
 				System.out.println(libro);
 			}
-			System.out.println("==========================================");
 		} catch (SQLException e) {
 			System.err.println("Error al generar el reporte: " + e.getMessage());
 

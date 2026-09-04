@@ -55,24 +55,20 @@ public class ReporteService {
      */
     public Set<Libro> librosNuncaPrestados() throws SQLException {
         Set<Libro> resultado = new HashSet<>();
-        
-        
         List<Libro> libros = libroDAO.listarTodos();
-        List<PrestamoDetalle> prestamosActivos = prestamoDAO.listarPrestamosActivosConLibro();
-        
+        List<PrestamoDetalle> activos = prestamoDAO.listarPrestamosActivosConLibro();
+
         Set<String> titulosPrestados = new HashSet<>();
-        
-        for(PrestamoDetalle prestamo : prestamosActivos ) {
-        	titulosPrestados.add(prestamo.getTituloLibro());
+
+        for (PrestamoDetalle prestamo : activos) {
+            titulosPrestados.add(prestamo.getTituloLibro());
         }
-        
-        
-        for(Libro libro : libros ) {
-        	if(!titulosPrestados.contains(libro.getTitulo())) {
-        		resultado.add(libro);
-        	}
+
+        for (Libro libro : libros) {
+            if (!titulosPrestados.contains(libro.getTitulo())) {
+                resultado.add(libro);
+            }
         }
-        
         return resultado;
     }
 
@@ -87,6 +83,7 @@ public class ReporteService {
      * colecciones: por cada PrestamoDetalle, revisa si su titulo ya esta en
      * el mapa (si SI, suma 1; si NO, agregalo con valor 1).
      */
+ 
     public Map<String, Integer> contarPrestamosActivosPorTitulo() throws SQLException {
         Map<String, Integer> conteo = new HashMap<>();
         List<PrestamoDetalle> activos = prestamoDAO.listarPrestamosActivosConLibro();
@@ -100,5 +97,6 @@ public class ReporteService {
             }
         }
         return conteo;
+        
     }
 }
